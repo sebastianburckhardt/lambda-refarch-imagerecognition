@@ -49,6 +49,11 @@ async function generateThumbnail(s3Bucket, srcKey, width, height, format) {
 exports.handler = async (event, context, callback) => {
   try {
     console.log("Reading input from event:\n", util.inspect(event, {depth: 5}));
+    if ("headers" in event && "body" in event) {
+      console.log("Invoked through HTTP\n");
+      event = JSON.parse(event.body);
+      console.log("Reading input from event:\n", util.inspect(event, {depth: 5}));
+    }
     const s3Bucket = event.s3Bucket;
     // Object key may have spaces or unicode non-ASCII characters.
     const srcKey = event.s3Key;

@@ -64,6 +64,11 @@ const UPDATE_PHOTO = gql`
 
 exports.handler = async (event, context, callback) => {
   console.log("Reading input from event:\n", util.inspect(event, {depth: 5}));
+  if ("headers" in event && "body" in event) {
+    console.log("Invoked through HTTP\n");
+    event = JSON.parse(event.body);
+    console.log("Reading input from event:\n", util.inspect(event, {depth: 5}));
+  }
   const id = event.objectID
   let extractedMetadata = event.extractedMetadata;
   const fullsize = {
