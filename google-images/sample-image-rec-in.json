@@ -1,0 +1,13 @@
+{
+    "s3Key": "x/y.jpg",
+    "objectID": "y",
+    "extractImageMetadataURI": "https://...",
+    "transformMetadataURI": "https://...",
+    "rekognitionURI": "https://...",
+    "generateThumbnailURI": "https://...",
+    "storeImageMetadataURI": "https://...",
+    "parallel": 20,
+    "sequential": 20,
+    "s3Bucket": "a",
+    "s3Prefix": "x"
+  }
